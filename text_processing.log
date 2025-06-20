@@ -1,0 +1,240 @@
+2025-06-09 20:45:14,243 - INFO - Starting Chinese Historical Text Processing Pipeline
+2025-06-09 20:45:14,243 - INFO - Starting to process file: 白话资治通鉴01—周威烈王二十三年.至.汉惠帝七_djvu.txt
+2025-06-09 20:45:14,248 - INFO - Total lines to process: 11505
+2025-06-09 20:45:14,249 - INFO - Found title at line 12: 和
+2025-06-09 20:45:14,250 - INFO - Found title at line 18: 周 威 烈 王 二 十 三 年
+2025-06-09 20:45:14,251 - INFO - Saved chapter: 0000_potential_title_周_威_烈_王_二_十_三_年.txt
+2025-06-09 20:45:14,251 - INFO - Found title at line 22: 次 治 通 监
+2025-06-09 20:45:14,252 - INFO - Found title at line 23: 第 一 至 十 二 卷
+2025-06-09 20:45:14,252 - INFO - Found title at line 26: 主 编 沈 志 华 张 宏 伪
+2025-06-09 20:45:14,253 - INFO - Saved chapter: 0001_potential_title_主_编_沈_志_华_张_宏_伪.txt
+2025-06-09 20:45:14,253 - INFO - Found title at line 28: 陈 东 林
+2025-06-09 20:45:14,253 - INFO - Found title at line 31: 中 华 书 局
+2025-06-09 20:45:14,254 - INFO - Saved chapter: 0002_potential_title_中_华_书_局.txt
+2025-06-09 20:45:14,254 - INFO - Found title at line 37: 白话 资 治 通 鉴
+2025-06-09 20:45:14,254 - INFO - Found title at line 38: (全 二 十 册 )
+2025-06-09 20:45:14,255 - INFO - Saved chapter: 0003_potential_title_(全_二_十_册_).txt
+2025-06-09 20:45:14,255 - INFO - Found title at line 43: 新 华 书 店 北 京 发 行 记 发行
+2025-06-09 20:45:14,255 - INFO - Found title at line 44: ” 烛 京 第 二 新 华 印 刷 厂 印刷
+2025-06-09 20:45:14,256 - INFO - Saved chapter: 0004_potential_title_”_烛_京_第_二_新_华_印_刷_厂_印刷.txt
+2025-06-09 20:45:14,257 - INFO - Found title at line 56: 主 编 沈 志 华
+2025-06-09 20:45:14,258 - INFO - Saved chapter: 0005_potential_title_主_编_沈_志_华.txt
+2025-06-09 20:45:14,258 - INFO - Found title at line 59: 马 怡 毛 双 民 毛 佩 琦 孙 家 洲
+2025-06-09 20:45:14,259 - INFO - Saved chapter: 0006_potential_title_马_怡_毛_双_民_毛_佩_琦_孙_家_洲.txt
+2025-06-09 20:45:14,259 - INFO - Found title at line 67: 副 主 编 马 恰 李 丹 慧 陈 东 林
+2025-06-09 20:45:14,260 - INFO - Saved chapter: 0007_potential_title_副_主_编_马_恰_李_丹_慧_陈_东_林.txt
+2025-06-09 20:45:14,260 - INFO - Found title at line 71: 白 隅 五 旭 红 和 孙 家 洲 李 内
+2025-06-09 20:45:14,261 - INFO - Saved chapter: 0008_potential_title_白_隅_五_旭_红_和_孙_家_洲_李_内.txt
+2025-06-09 20:45:14,261 - INFO - Found title at line 76: 宋 培 学 杨 下 张 书 才 柳 完
+2025-06-09 20:45:14,262 - INFO - Saved chapter: 0009_potential_title_宋_培_学_杨_下_张_书_才_柳_完.txt
+2025-06-09 20:45:14,262 - INFO - Found title at line 78: 联 宇 骞 豆 刚 下 喜 党 圣 元
+2025-06-09 20:45:14,264 - INFO - Saved chapter: 0010_potential_title_联_宇_骞_豆_刚_下_喜_党_圣_元.txt
+2025-06-09 20:45:14,264 - INFO - Found title at line 80: 董 洪 利 府 桂 华 曾 镇 南 苏 有 红
+2025-06-09 20:45:14,265 - INFO - Saved chapter: 0011_potential_title_董_洪_利_府_桂_华_曾_镇_南_苏_有_红.txt
+2025-06-09 20:45:14,266 - INFO - Found title at line 85: 沈 玉 成 张 泽 成 曹 道 衡
+2025-06-09 20:45:14,268 - INFO - Saved chapter: 0012_potential_title_沈_玉_成_张_泽_成_曹_道_衡.txt
+2025-06-09 20:45:14,268 - INFO - Found title at line 89: 古籍 今 译 一 一 代 序
+2025-06-09 20:45:14,269 - INFO - Saved chapter: 0013_potential_title_古籍_今_译_一_一_代_序.txt
+2025-06-09 20:45:14,269 - INFO - Found title at line 99: 京 大 学 、 中 国人 民 大 学 、 中 华 书局 等 几 十 家 学 术 单 位 的 一
+2025-06-09 20:45:14,272 - INFO - Saved chapter: 0014_potential_title_京_大_学_、_中_国人_民_大_学_、_中_华_书局_等_几_十_家_学_术_单_位_的_一.txt
+2025-06-09 20:45:14,272 - INFO - Found title at line 124: 写 得 好 往往 需要 文言 文 的 修养 吗 ?
+2025-06-09 20:45:14,273 - INFO - Saved chapter: 0015_potential_title_写_得_好_往往_需要_文言_文_的_修养_吗.txt
+2025-06-09 20:45:14,273 - INFO - Found title at line 136: 细致 周到 吗 ?
+2025-06-09 20:45:14,274 - INFO - Saved chapter: 0016_potential_title_细致_周到_吗.txt
+2025-06-09 20:45:14,274 - INFO - Found title at line 149: 此 可 见 古 籍 今 译 对 于 推动 中 华 民族 传统 文化 走向 世界 的
+2025-06-09 20:45:14,275 - INFO - Saved chapter: 0017_potential_title_此_可_见_古_籍_今_译_对_于_推动_中_华_民族_传统_文化_走向_世界_的.txt
+2025-06-09 20:45:14,275 - INFO - Found title at line 185: 编译 说 明
+2025-06-09 20:45:14,276 - INFO - Saved chapter: 0018_potential_title_编译_说_明.txt
+2025-06-09 20:45:14,277 - INFO - Found title at line 221: 关于 中 华 原文 本 的 使 用 说 明 如 下 :
+2025-06-09 20:45:14,277 - INFO - Saved chapter: 0019_potential_title_关于_中_华_原文_本_的_使_用_说_明_如_下.txt
+2025-06-09 20:45:14,279 - INFO - Found title at line 263: 三 翻译 原则 :
+2025-06-09 20:45:14,280 - INFO - Saved chapter: 0020_potential_title_三_翻译_原则.txt
+2025-06-09 20:45:14,281 - INFO - Found title at line 307: 通 鉴 今 译 系列 编 委 会
+2025-06-09 20:45:14,282 - INFO - Saved chapter: 0021_potential_title_通_鉴_今_译_系列_编_委_会.txt
+2025-06-09 20:45:14,282 - INFO - Found title at line 369: 目 录
+2025-06-09 20:45:14,283 - INFO - Saved chapter: 0022_potential_title_目_录.txt
+2025-06-09 20:45:14,283 - INFO - Found title at line 376: 第 一 需
+2025-06-09 20:45:14,284 - INFO - Saved chapter: 0023_potential_title_第_一_需.txt
+2025-06-09 20:45:14,285 - INFO - Found title at line 432: 高 帝 五 年 至 七 年 …
+2025-06-09 20:45:14,285 - INFO - Saved chapter: 0024_potential_title_高_帝_五_年_至_七_年_….txt
+2025-06-09 20:45:14,285 - INFO - Found title at line 439: 第 二 册
+2025-06-09 20:45:14,285 - INFO - Saved chapter: 0025_potential_title_第_二_册.txt
+2025-06-09 20:45:14,285 - INFO - Found title at line 446: 文帝 前 三 年 至 十 年 …
+2025-06-09 20:45:14,289 - INFO - Saved chapter: 0026_potential_title_文帝_前_三_年_至_十_年_….txt
+2025-06-09 20:45:14,289 - INFO - Found title at line 453: 景帝 前 元 年 至 二 年 …
+2025-06-09 20:45:14,290 - INFO - Saved chapter: 0027_potential_title_景帝_前_元_年_至_二_年_….txt
+2025-06-09 20:45:14,291 - INFO - Found title at line 515: 武帝 元 狩 五 年 至 六 年 元 鼎 元 年 至 六 年
+2025-06-09 20:45:14,292 - INFO - Saved chapter: 0028_potential_title_武帝_元_狩_五_年_至_六_年_元_鼎_元_年_至_六_年.txt
+2025-06-09 20:45:14,292 - INFO - Found title at line 552: 第 三 册
+2025-06-09 20:45:14,292 - INFO - Saved chapter: 0029_potential_title_第_三_册.txt
+2025-06-09 20:45:14,292 - INFO - Found title at line 560: 元 帘 永 光 三 年 至 五 年 建 昭 元 年 至 五 年
+2025-06-09 20:45:14,295 - INFO - Saved chapter: 0030_potential_title_元_帘_永_光_三_年_至_五_年_建_昭_元_年_至_五_年.txt
+2025-06-09 20:45:14,295 - INFO - Found title at line 589: 平帝 元 始 三 年 至 五 年 王莽 居 摄 元 年 至 二 年
+2025-06-09 20:45:14,296 - INFO - Saved chapter: 0031_potential_title_平帝_元_始_三_年_至_五_年_王莽_居_摄_元_年_至_二_年.txt
+2025-06-09 20:45:14,296 - INFO - Found title at line 617: 第 四 册
+2025-06-09 20:45:14,296 - INFO - Saved chapter: 0032_potential_title_第_四_册.txt
+2025-06-09 20:45:14,296 - INFO - Found title at line 685: 第 五 册
+2025-06-09 20:45:14,296 - INFO - Saved chapter: 0033_potential_title_第_五_册.txt
+2025-06-09 20:45:14,296 - INFO - Found title at line 757: 第 六 册
+2025-06-09 20:45:14,296 - INFO - Saved chapter: 0034_potential_title_第_六_册.txt
+2025-06-09 20:45:14,296 - INFO - Found title at line 860: 第 七 册
+2025-06-09 20:45:14,303 - INFO - Saved chapter: 0035_potential_title_第_七_册.txt
+2025-06-09 20:45:14,303 - INFO - Found title at line 890: 成 帝 咸 康 八 年 康 帝 建 元 元 年 至 一 年
+2025-06-09 20:45:14,303 - INFO - Saved chapter: 0036_potential_title_成_帝_咸_康_八_年_康_帝_建_元_元_年_至_一_年.txt
+2025-06-09 20:45:14,303 - INFO - Found title at line 921: 白话 资 治 通 鉴 目录
+2025-06-09 20:45:14,303 - INFO - Saved chapter: 0037_potential_title_白话_资_治_通_鉴_目录.txt
+2025-06-09 20:45:14,303 - INFO - Found title at line 931: 第 八 册
+2025-06-09 20:45:14,303 - INFO - Saved chapter: 0038_potential_title_第_八_册.txt
+2025-06-09 20:45:14,303 - INFO - Found title at line 939: 泽 武 帝 太 元 十 七 年 至 二 十 一 年
+2025-06-09 20:45:14,303 - INFO - Saved chapter: 0039_potential_title_泽_武_帝_太_元_十_七_年_至_二_十_一_年.txt
+2025-06-09 20:45:14,303 - INFO - Found title at line 1009: 安帝 义 巾 十 一 年 至 十 二 年
+2025-06-09 20:45:14,311 - INFO - Saved chapter: 0040_potential_title_安帝_义_巾_十_一_年_至_十_二_年.txt
+2025-06-09 20:45:14,312 - INFO - Found title at line 1041: 文帝 元 嘉 十 三 年 至 十 八 年
+2025-06-09 20:45:14,312 - INFO - Found title at line 1044: 第 九 册
+2025-06-09 20:45:14,314 - INFO - Saved chapter: 0041_potential_title_第_九_册.txt
+2025-06-09 20:45:14,314 - INFO - Found title at line 1143: 第 十 册
+2025-06-09 20:45:14,315 - INFO - Saved chapter: 0042_potential_title_第_十_册.txt
+2025-06-09 20:45:14,315 - INFO - Found title at line 1199: 第 十 一 姑
+2025-06-09 20:45:14,318 - INFO - Saved chapter: 0043_potential_title_第_十_一_姑.txt
+2025-06-09 20:45:14,319 - INFO - Found title at line 1264: 第 十 二 册
+2025-06-09 20:45:14,321 - INFO - Saved chapter: 0044_potential_title_第_十_二_册.txt
+2025-06-09 20:45:14,321 - INFO - Found title at line 1329: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1332: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1335: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1338: 第
+2025-06-09 20:45:14,321 - INFO - Found title at line 1341: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1344: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1347: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1350: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1353: 第
+2025-06-09 20:45:14,321 - INFO - Found title at line 1356: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1359: 第 一
+2025-06-09 20:45:14,321 - INFO - Found title at line 1362: 第
+2025-06-09 20:45:14,326 - INFO - Saved chapter: 0045_potential_title_第.txt
+2025-06-09 20:45:14,326 - INFO - Found title at line 1411: 第 十 三 册
+2025-06-09 20:45:14,326 - INFO - Found title at line 1414: 了
+2025-06-09 20:45:14,328 - INFO - Saved chapter: 0046_potential_title_了.txt
+2025-06-09 20:45:14,328 - INFO - Found title at line 1485: 太宗 贞观 二 十 二 年 至 二 十 三 年
+2025-06-09 20:45:14,328 - INFO - Found title at line 1488: 第 十 四 册
+2025-06-09 20:45:14,329 - INFO - Saved chapter: 0047_potential_title_第_十_四_册.txt
+2025-06-09 20:45:14,329 - INFO - Found title at line 1508: 高 宗 威 享 二 年 至 四 年 上 元 元 年 至 二 年 仪 凤 元 年 至 三 年
+2025-06-09 20:45:14,331 - INFO - Saved chapter: 0048_potential_title_高_宗_威_享_二_年_至_四_年_上_元_元_年_至_二_年_仪_凤_元_年_至_三_年.txt
+2025-06-09 20:45:14,331 - INFO - Found title at line 1555: . 则 天 后 久 视 元 年 长 安 元 年 至 四 年
+2025-06-09 20:45:14,331 - INFO - Saved chapter: 0049_potential_title_._则_天_后_久_视_元_年_长_安_元_年_至_四_年.txt
+2025-06-09 20:45:14,331 - INFO - Found title at line 1603: 第 十 五 册
+2025-06-09 20:45:14,331 - INFO - Saved chapter: 0050_potential_title_第_十_五_册.txt
+2025-06-09 20:45:14,331 - INFO - Found title at line 1665: 第 十 六 册
+2025-06-09 20:45:14,331 - INFO - Saved chapter: 0051_potential_title_第_十_六_册.txt
+2025-06-09 20:45:14,331 - INFO - Found title at line 1668: 凡 工 年 有 余
+2025-06-09 20:45:14,331 - INFO - Saved chapter: 0052_potential_title_凡_工_年_有_余.txt
+2025-06-09 20:45:14,331 - INFO - Found title at line 1678: 正月 不 满 ] 年
+2025-06-09 20:45:14,340 - INFO - Saved chapter: 0053_special_event_正月_不_满_]_年.txt
+2025-06-09 20:45:14,340 - INFO - Found title at line 1721: 凡生 年 有 余
+2025-06-09 20:45:14,340 - INFO - Saved chapter: 0054_potential_title_凡生_年_有_余.txt
+2025-06-09 20:45:14,342 - INFO - Found title at line 1725: 第 十 七 册
+2025-06-09 20:45:14,343 - INFO - Saved chapter: 0055_potential_title_第_十_七_册.txt
+2025-06-09 20:45:14,343 - INFO - Found title at line 1749: 第 二
+2025-06-09 20:45:14,343 - INFO - Found title at line 1752: .第 二
+2025-06-09 20:45:14,343 - INFO - Found title at line 1755: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1758: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1761: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1764: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1767: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1770: 第 二
+2025-06-09 20:45:14,344 - INFO - Found title at line 1773: 第
+2025-06-09 20:45:14,344 - INFO - Found title at line 1776: 第 二
+2025-06-09 20:45:14,346 - INFO - Saved chapter: 0056_potential_title_第_二.txt
+2025-06-09 20:45:14,346 - INFO - Found title at line 1818: 第 十 八 册
+2025-06-09 20:45:14,346 - INFO - Saved chapter: 0057_potential_title_第_十_八_册.txt
+2025-06-09 20:45:14,346 - INFO - Found title at line 1875: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1878: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1881: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1882: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1883: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1886: 第 二
+2025-06-09 20:45:14,346 - INFO - Found title at line 1889: 第
+2025-06-09 20:45:14,346 - INFO - Found title at line 1892: 第
+2025-06-09 20:45:14,346 - INFO - Found title at line 1895: 第 二
+2025-06-09 20:45:14,346 - INFO - Saved chapter: 0058_potential_title_第_二.txt
+2025-06-09 20:45:14,346 - INFO - Found title at line 1903: 第 十 九 册
+2025-06-09 20:45:14,346 - INFO - Saved chapter: 0059_potential_title_第_十_九_册.txt
+2025-06-09 20:45:14,346 - INFO - Found title at line 1953: 第 二 十 册
+2025-06-09 20:45:14,346 - INFO - Saved chapter: 0060_potential_title_第_二_十_册.txt
+2025-06-09 20:45:14,346 - INFO - Found title at line 1998: 资 治 通 鉴 第 一 卷
+2025-06-09 20:45:14,346 - INFO - Found title at line 2001: 周 纪 一 ”” 周 威 烈 王 二 十 三 年 (成 宽 , 公 元 前 403 年 )
+2025-06-09 20:45:14,361 - INFO - Saved chapter: 0061_dynasty_chronicle_周_纪_一_””_周_威_烈_王_二_十_三_年_(成_宽_,_公_元_前_403_年_).txt
+2025-06-09 20:45:14,362 - INFO - Found title at line 2730: 资 治 通 鉴 第 二 卷
+2025-06-09 20:45:14,363 - INFO - Found title at line 2733: 周 纪 二 ”” 周 显 王 元 年 ( 委 丑 ,公元 前 368 年 )
+2025-06-09 20:45:14,363 - INFO - Saved chapter: 0062_dynasty_chronicle_周_纪_二_””_周_显_王_元_年_(_委_丑_,公元_前_368_年_).txt
+2025-06-09 20:45:14,363 - INFO - Found title at line 2865: 身 为 治理 一 统 天 下 的 当政 者 呢 !
+2025-06-09 20:45:14,363 - INFO - Saved chapter: 0063_potential_title_身_为_治理_一_统_天_下_的_当政_者_呢_!.txt
+2025-06-09 20:45:14,363 - INFO - Found title at line 2988: 主 !?
+2025-06-09 20:45:14,371 - INFO - Saved chapter: 0064_potential_title_主_!.txt
+2025-06-09 20:45:14,372 - INFO - Found title at line 3521: 资 治 通 监 第 三 卷
+2025-06-09 20:45:14,372 - INFO - Found title at line 3524: 周 纪 三 周 愤 裔 王 元 年 ( 辛 丑 ,公元 前 320 年 )
+2025-06-09 20:45:14,375 - INFO - Saved chapter: 0065_dynasty_chronicle_周_纪_三_周_愤_裔_王_元_年_(_辛_丑_,公元_前_320_年_).txt
+2025-06-09 20:45:14,375 - INFO - Found title at line 4198: 资 治 通 鉴 第 四 卷
+2025-06-09 20:45:14,376 - INFO - Found title at line 4201: 周 纪 四 周报 王 十 八 年 (甲子 ,公元 前 297 年 )
+2025-06-09 20:45:14,377 - INFO - Saved chapter: 0066_dynasty_chronicle_周_纪_四_周报_王_十_八_年_(甲子_,公元_前_297_年_).txt
+2025-06-09 20:45:14,377 - INFO - Found title at line 4357: 月 ,如 礼 从 齐 国 到 秦 国 ,秦王 也 去 掉 帝 号 ,仍旧 称 王 。
+2025-06-09 20:45:14,379 - INFO - Saved chapter: 0067_special_event_月_,如_礼_从_齐_国_到_秦_国_,秦王_也_去_掉_帝_号_,仍旧_称_王_。.txt
+2025-06-09 20:45:14,379 - INFO - Found title at line 4519: 国 首都 大 梁 才 退回 ;
+2025-06-09 20:45:14,379 - INFO - Saved chapter: 0068_potential_title_国_首都_大_梁_才_退回_;.txt
+2025-06-09 20:45:14,379 - INFO - Found title at line 4821: 月 也 未 能 攻克 。 齐 国 小 孩子 在 歌谣 中 讯 讽 唱 道 :“ 大 冠 像 繁 笑 , 长 剑
+2025-06-09 20:45:14,379 - INFO - Saved chapter: 0069_special_event_月_也_未_能_攻克_。_齐_国_小_孩子_在_歌谣_中_讯_讽_唱_道_“_大_冠_像_繁_笑_,_长_剑.txt
+2025-06-09 20:45:14,379 - INFO - Found title at line 4979: 资 治 通 鉴 第 五 卷
+2025-06-09 20:45:14,379 - INFO - Found title at line 4982: 周 纪 五 周报 王 四 十 三 年 ( 己 丑 , 公 元 前 272 年 )
+2025-06-09 20:45:14,387 - INFO - Saved chapter: 0070_dynasty_chronicle_周_纪_五_周报_王_四_十_三_年_(_己_丑_,_公_元_前_272_年_).txt
+2025-06-09 20:45:14,387 - INFO - Found title at line 5178: 颠覆 他 人 的 能 手 !
+2025-06-09 20:45:14,391 - INFO - Saved chapter: 0071_potential_title_颠覆_他_人_的_能_手_!.txt
+2025-06-09 20:45:14,391 - INFO - Found title at line 5648: 月 ,秦王 调动 更 多 士兵 驻扎 在 汾 城 旁 。 白 起 因 病 ,未 能 出 征 。 各 国
+2025-06-09 20:45:14,392 - INFO - Saved chapter: 0072_special_event_月_,秦王_调动_更_多_士兵_驻扎_在_汾_城_旁_。_白_起_因_病_,未_能_出_征_。_各_国.txt
+2025-06-09 20:45:14,392 - INFO - Found title at line 5750: 资 治 通 鉴 第 六 卷
+2025-06-09 20:45:14,392 - INFO - Found title at line 5753: 秦 纪 一 。 ”秦昭襄 王 五 十 二 年 (丙午 ,公元 前 255 年 )
+2025-06-09 20:45:14,396 - INFO - Saved chapter: 0073_dynasty_chronicle_秦_纪_一_。_”秦昭襄_王_五_十_二_年_(丙午_,公元_前_255_年_).txt
+2025-06-09 20:45:14,396 - INFO - Found title at line 6596: 也
+2025-06-09 20:45:14,396 - INFO - Saved chapter: 0074_potential_title_也.txt
+2025-06-09 20:45:14,396 - INFO - Found title at line 6750: 资 治 通 鉴 第 七 着
+2025-06-09 20:45:14,396 - INFO - Found title at line 6753: 秦 纪 二 “秦始皇 帝 二 十 年 ( 甲 戌 ,公元 前 227 年 ) .
+2025-06-09 20:45:14,396 - INFO - Saved chapter: 0075_dynasty_chronicle_秦_纪_二_“秦始皇_帝_二_十_年_(_甲_戌_,公元_前_227_年_)_..txt
+2025-06-09 20:45:14,396 - INFO - Found title at line 6794: 月 ,大 梁 城 垣 塌 毁 , 殊 王 魏 假 投降 ,被 条 死 ,于 是 魏 国 灭亡 。
+2025-06-09 20:45:14,396 - INFO - Saved chapter: 0076_special_event_月_,大_梁_城_垣_塌_毁_,_殊_王_魏_假_投降_,被_条_死_,于_是_魏_国_灭亡_。.txt
+2025-06-09 20:45:14,396 - INFO - Found title at line 7613: 资 治 通 鉴 第 八 卷
+2025-06-09 20:45:14,396 - INFO - Found title at line 7616: 秦 纪 三 秦 二 世 皇 帝 二 年 ( 烽 已 ,公元 前 208 年 )
+2025-06-09 20:45:14,408 - INFO - Saved chapter: 0077_dynasty_chronicle_秦_纪_三_秦_二_世_皇_帝_二_年_(_烽_已_,公元_前_208_年_).txt
+2025-06-09 20:45:14,408 - INFO - Found title at line 7624: 月 , 秦 将 章 邯 领 兵 追击 打败 了 楚 军 .周文 又 逃跑 到 湿 池 ,十 余 日 后 ，
+2025-06-09 20:45:14,413 - INFO - Saved chapter: 0078_special_event_月_,_秦_将_章_邯_领_兵_追击_打败_了_楚_军_.周文_又_逃跑_到_湿_池_,十_余_日_后_，.txt
+2025-06-09 20:45:14,413 - INFO - Found title at line 8276: 更 好 啊 ?”
+2025-06-09 20:45:14,413 - INFO - Saved chapter: 0079_potential_title_更_好_啊_”.txt
+2025-06-09 20:45:14,413 - INFO - Found title at line 8372: 资 治 通 鉴 第 九 卷
+2025-06-09 20:45:14,413 - INFO - Found title at line 8375: 汉 纪 一 。 ” 汉 高 帝 元 年 (乙未 ,公元 前 206 年 )
+2025-06-09 20:45:14,413 - INFO - Saved chapter: 0080_dynasty_chronicle_汉_纪_一_。_”_汉_高_帝_元_年_(乙未_,公元_前_206_年_).txt
+2025-06-09 20:45:14,413 - INFO - Found title at line 8898: 打 楚 国 这 个 杀害 义 帝 的 逆 贼 !”
+2025-06-09 20:45:14,413 - INFO - Saved chapter: 0081_potential_title_打_楚_国_这_个_杀害_义_帝_的_逆_贼_!”.txt
+2025-06-09 20:45:14,413 - INFO - Found title at line 8932: 汉王 在 途中 遇 到 他 的 毁 长 子 后 来 的 学 惠 帝 刘 下 和 长 女 鲁 元 公
+2025-06-09 20:45:14,429 - INFO - Saved chapter: 0082_potential_title_汉王_在_途中_遇_到_他_的_毁_长_子_后_来_的_学_惠_帝_刘_下_和_长_女_鲁_元_公.txt
+2025-06-09 20:45:14,429 - INFO - Found title at line 9090: 资 治 通 鉴 第 十 卷
+2025-06-09 20:45:14,430 - INFO - Found title at line 9093: 汉 纪 二  ” 汉 高 帝 三 年 (丁酉 ,公元 前 204 年)
+2025-06-09 20:45:14,431 - INFO - Saved chapter: 0083_dynasty_chronicle_汉_纪_二_”_汉_高_帝_三_年_(丁酉_,公元_前_204_年).txt
+2025-06-09 20:45:14,431 - INFO - Found title at line 9178: 您 想 要 调动 疲惫 困 乏 的 全 部 军队 去 停 扎 在 燕 国 防守 坚固 的 城池 下
+2025-06-09 20:45:14,437 - INFO - Saved chapter: 0084_potential_title_您_想_要_调动_疲惫_困_乏_的_全_部_军队_去_停_扎_在_燕_国_防守_坚固_的_城池_下.txt
+2025-06-09 20:45:14,438 - INFO - Found title at line 9810: 资 治 通 鉴 第 十 一 卷
+2025-06-09 20:45:14,438 - INFO - Found title at line 9813: 汉 纪 三 ” 汉 高 帝 五 年 ( 己 变 ,公元 前 202 年 )
+2025-06-09 20:45:14,446 - INFO - Saved chapter: 0085_dynasty_chronicle_汉_纪_三_”_汉_高_帝_五_年_(_己_变_,公元_前_202_年_).txt
+2025-06-09 20:45:14,446 - INFO - Found title at line 10462: 只 是 把 它 用 在 宴会 仪式 之 上 、 门 户 庭院 之 间 维持 秩序 的 吗 ?!
+2025-06-09 20:45:14,446 - INFO - Saved chapter: 0086_potential_title_只_是_把_它_用_在_宴会_仪式_之_上_、_门_户_庭院_之_间_维持_秩序_的_吗_!.txt
+2025-06-09 20:45:14,446 - INFO - Found title at line 10485: 去 追求 一 时 的 功利 的 !
+2025-06-09 20:45:14,446 - INFO - Saved chapter: 0087_potential_title_去_追求_一_时_的_功利_的_!.txt
+2025-06-09 20:45:14,446 - INFO - Found title at line 10582: 萧 开 的 头 吧 !
+2025-06-09 20:45:14,446 - INFO - Saved chapter: 0088_potential_title_萧_开_的_头_吧_!.txt
+2025-06-09 20:45:14,446 - INFO - Found title at line 10594: 资 治 通 监 第 十 二 卷
+2025-06-09 20:45:14,446 - INFO - Found title at line 10597: 汉 纪 四 汉 高 帝 八 年 ( 王 寅 , 公 元 前 199 年 )
+2025-06-09 20:45:14,446 - INFO - Saved chapter: 0089_dynasty_chronicle_汉_纪_四_汉_高_帝_八_年_(_王_寅_,_公_元_前_199_年_).txt
+2025-06-09 20:45:14,446 - INFO - Found title at line 10846: 一 一
+2025-06-09 20:45:14,467 - INFO - Saved chapter: 0090_potential_title_一_一.txt
+2025-06-09 20:45:14,467 - INFO - Found title at line 11458: 太 荒 庚 了 吗 !
+2025-06-09 20:45:14,469 - INFO - Saved chapter: 0091_potential_title_太_荒_庚_了_吗_!.txt
+2025-06-09 20:45:14,469 - INFO - Processing complete. Total chapters extracted: 92
+2025-06-09 20:45:14,470 - INFO - Creating corpus files...
+2025-06-09 20:45:16,960 - INFO - Metadata saved. Statistics: {'total_chapters': 92, 'title_types': {'potential_title': 74, 'special_event': 6, 'dynasty_chronicle': 12}, 'dynasties': {'周': 7, 'unknown': 53, '陈': 1, '五': 4, '宋': 1, '元': 9, '代': 1, '明': 2, '齐': 2, '梁': 2, '秦': 5, '汉': 5}, 'total_characters': 204977}
+2025-06-09 20:45:16,960 - INFO - Processing pipeline completed successfully!
