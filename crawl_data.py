@@ -285,42 +285,41 @@ class MingHistoryCrawler:
             logger.error(f"Error extracting content from {url}: {e}")
             return None
     
+    def split_into_paragraphs(self, text: str) -> list:
+        """Split text into paragraphs by double newlines or by single newlines if no double newlines exist."""
+        # Try double newlines first
+        paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
+        if len(paragraphs) <= 1:
+            # Fallback: split by single newlines
+            paragraphs = [p.strip() for p in text.split('\n') if p.strip()]
+        # Filter out very short paragraphs (likely noise)
+        return [p for p in paragraphs if len(p) > 10]
+    
     def save_chapter(self, chapter_data: Dict) -> bool:
         """
-        Save chapter data to a text file
-        
-        Args:
-            chapter_data: Dictionary containing chapter data
-            
-        Returns:
-            True if saved successfully
+        Save chapter data to multiple paragraph files
         """
         try:
-            # Create filename
-            filename = f"{chapter_data['chapter_type']}_{chapter_data['volume']}_{chapter_data['title']}.txt"
-            filename = self.clean_filename(filename)
-            
-            filepath = self.output_dir / filename
-            
-            # Prepare content
-            file_content = f"""标题: {chapter_data['title']}
+            paragraphs = self.split_into_paragraphs(chapter_data['content'])
+            if not paragraphs:
+                logger.warning(f"No paragraphs found for chapter: {chapter_data['title']}")
+                return False
+            success = True
+            for idx, para in enumerate(paragraphs, 1):
+                filename = f"{chapter_data['chapter_type']}_{chapter_data['volume']}_{chapter_data['title']}_{idx}.txt"
+                filename = self.clean_filename(filename)
+                filepath = self.output_dir / filename
+                file_content = f"""标题: {chapter_data['title']}
 章节类型: {chapter_data['chapter_type']}
 卷数: {chapter_data['volume']}
 URL: {chapter_data['url']}
 原始标题: {chapter_data['original_title']}
-
-{'='*50}
-
-{chapter_data['content']}
-"""
-            
-            # Save file
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(file_content)
-            
-            logger.info(f"Saved chapter to: {filepath}")
-            return True
-            
+段落序号: {idx}
+\n{'='*50}\n\n{para}\n"""
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(file_content)
+                logger.info(f"Saved paragraph {idx} of chapter to: {filepath}")
+            return success
         except Exception as e:
             logger.error(f"Error saving chapter {chapter_data['title']}: {e}")
             return False
@@ -442,7 +441,7 @@ def main():
     """
     # Configuration
     BASE_URL = "https://www.xuges.com/ls/mingshi/index.htm"
-    OUTPUT_DIR = "ming_history_chapters"
+    OUTPUT_DIR = "ming_history_chapters_new_2"
     TEST_MODE = False  # Set to False for full crawl
     MAX_WORKERS = 3  # Number of concurrent threads
     
