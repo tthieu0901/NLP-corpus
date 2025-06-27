@@ -5,6 +5,7 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification, pipelin
 from datasets import Dataset
 import torch
 import numpy as np
+import re
 
 # Load Hugging Face model for Chinese NER (more robust for historical texts)
 try:
@@ -57,10 +58,48 @@ def process_texts_batch(texts):
     
     return results
 
+def is_chinese_char(char):
+    """Check if a character is Chinese."""
+    return '\u4e00' <= char <= '\u9fff'
+
+def preprocess_chinese_text(text):
+    """Remove spaces between Chinese characters while preserving structure."""
+    if not text:
+        return text
+    
+    chars = list(text)
+    cleaned_chars = []
+    i = 0
+    
+    while i < len(chars):
+        current_char = chars[i]
+        
+        if current_char == ' ':
+            # Check if this space is between Chinese characters
+            prev_is_chinese = i > 0 and is_chinese_char(chars[i-1])
+            next_is_chinese = i < len(chars)-1 and is_chinese_char(chars[i+1])
+            
+            if prev_is_chinese and next_is_chinese:
+                # Skip this space (don't add to cleaned text)
+                i += 1
+                continue
+        
+        # Add character to cleaned text
+        cleaned_chars.append(current_char)
+        i += 1
+    
+    cleaned_text = ''.join(cleaned_chars)
+    return cleaned_text
+
 def tag_entities_hf(text):
-    """Tag entities using Hugging Face model."""
-    entities = hf_ner(text)
-    tagged_text = text
+    """Tag entities using Hugging Face model with preprocessing."""
+    # Preprocess text to remove spaces between Chinese characters
+    cleaned_text = preprocess_chinese_text(text)
+    
+    # Apply NER to cleaned text
+    entities = hf_ner(cleaned_text)
+    
+    tagged_text = cleaned_text
     results = []
     
     # Sort entities by start position in reverse to avoid offset issues
@@ -70,7 +109,7 @@ def tag_entities_hf(text):
         start = ent['start']
         end = ent['end']
         label = ent['entity_group'] if 'entity_group' in ent else ent['entity']
-        entity_text = text[start:end]
+        entity_text = cleaned_text[start:end]
         confidence = ent.get('score', 1.0)
         
         # Only include high-confidence entities for ancient texts
@@ -83,18 +122,22 @@ def tag_entities_hf(text):
                     'label': custom_tag,
                     'start': start,
                     'end': end,
-                    'confidence': float(confidence)  # Convert to Python float for JSON serialization
+                    'confidence': float(confidence)
                 })
     
     return tagged_text, results
 
 def tag_entities_batch(texts):
-    """Tag entities for multiple texts using batch processing."""
-    batch_entities = process_texts_batch(texts)
+    """Tag entities for multiple texts using batch processing with preprocessing."""
+    # Preprocess all texts
+    cleaned_texts = [preprocess_chinese_text(text) for text in texts]
+    
+    # Apply NER to cleaned texts
+    batch_entities = process_texts_batch(cleaned_texts)
     results = []
     
-    for i, (text, entities) in enumerate(zip(texts, batch_entities)):
-        tagged_text = text
+    for i, (cleaned_text, entities) in enumerate(zip(cleaned_texts, batch_entities)):
+        tagged_text = cleaned_text
         text_results = []
         
         # Sort entities by start position in reverse to avoid offset issues
@@ -104,7 +147,7 @@ def tag_entities_batch(texts):
             start = ent['start']
             end = ent['end']
             label = ent['entity_group'] if 'entity_group' in ent else ent['entity']
-            entity_text = text[start:end]
+            entity_text = cleaned_text[start:end]
             confidence = ent.get('score', 1.0)
             
             # Only include high-confidence entities for ancient texts
@@ -117,7 +160,7 @@ def tag_entities_batch(texts):
                         'label': custom_tag,
                         'start': start,
                         'end': end,
-                        'confidence': float(confidence)  # Convert to Python float for JSON serialization
+                        'confidence': float(confidence)
                     })
         
         results.append((tagged_text, text_results))
@@ -130,7 +173,11 @@ def tag_entities(text):
 
 def tag_entities_to_xml(stc_elem, text):
     """Replace the text of stc_elem with a sequence of text and entity subelements."""
-    entities = hf_ner(text)
+    # Preprocess text to remove spaces between Chinese characters
+    cleaned_text = preprocess_chinese_text(text)
+    
+    # Apply NER to cleaned text
+    entities = hf_ner(cleaned_text)
     entities = [ent for ent in entities if ent.get('score', 1.0) > 0.7]
     
     last_idx = 0
@@ -143,17 +190,17 @@ def tag_entities_to_xml(stc_elem, text):
         start = ent['start']
         end = ent['end'] 
         label = ent['entity_group'] if 'entity_group' in ent else ent.get('entity', '')
-        entity_text = text[start:end]
+        entity_text = cleaned_text[start:end]
         
         # Add text before the entity
         if start > last_idx:
             if stc_elem.text == '':
-                stc_elem.text = text[last_idx:start]
+                stc_elem.text = cleaned_text[last_idx:start]
             else:
                 if len(stc_elem):
-                    stc_elem[-1].tail = (stc_elem[-1].tail or '') + text[last_idx:start]
+                    stc_elem[-1].tail = (stc_elem[-1].tail or '') + cleaned_text[last_idx:start]
                 else:
-                    stc_elem.text += text[last_idx:start]
+                    stc_elem.text += cleaned_text[last_idx:start]
         
         # Add the entity as a subelement if it's a mapped label
         if label in HF_TO_CUSTOM:
@@ -170,11 +217,11 @@ def tag_entities_to_xml(stc_elem, text):
         last_idx = end
     
     # Add any remaining text after the last entity
-    if last_idx < len(text):
+    if last_idx < len(cleaned_text):
         if len(stc_elem):
-            stc_elem[-1].tail = (stc_elem[-1].tail or '') + text[last_idx:]
+            stc_elem[-1].tail = (stc_elem[-1].tail or '') + cleaned_text[last_idx:]
         else:
-            stc_elem.text += text[last_idx:]
+            stc_elem.text += cleaned_text[last_idx:]
     # Remove leading empty text if present
     if stc_elem.text == '':
         stc_elem.text = None
@@ -210,6 +257,7 @@ def process_xml_file(input_path, output_dir):
         # Store for JSON
         file_results['sentences'].append({
             'original_text': original_text,
+            'cleaned_text': preprocess_chinese_text(original_text),
             'tagged_text': tagged_text,
             'entities': entities
         })
