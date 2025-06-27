@@ -1,0 +1,23 @@
+{
+  "total_chapters": 92,
+  "title_types": {
+    "potential_title": 74,
+    "special_event": 6,
+    "dynasty_chronicle": 12
+  },
+  "dynasties": {
+    "周": 7,
+    "unknown": 53,
+    "陈": 1,
+    "五": 4,
+    "宋": 1,
+    "元": 9,
+    "代": 1,
+    "明": 2,
+    "齐": 2,
+    "梁": 2,
+    "秦": 5,
+    "汉": 5
+  },
+  "total_characters": 204977
+}
