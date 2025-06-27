@@ -2,7 +2,9 @@ import os
 import json
 import xml.etree.ElementTree as ET
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+from datasets import Dataset
 import torch
+import numpy as np
 
 # Load Hugging Face model for Chinese NER (more robust for historical texts)
 try:
@@ -31,6 +33,30 @@ HF_TO_CUSTOM = {
     "TIME": "TME"
 }
 
+def process_texts_batch(texts):
+    """Process multiple texts in batch for better GPU efficiency."""
+    if not texts:
+        return []
+    
+    # Create dataset for batch processing
+    dataset = Dataset.from_dict({"text": texts})
+    
+    # Process in batches
+    batch_size = 8 if torch.cuda.is_available() else 4
+    results = []
+    
+    for i in range(0, len(texts), batch_size):
+        batch_texts = texts[i:i + batch_size]
+        batch_results = hf_ner(batch_texts)
+        
+        # Handle both single and batch results
+        if not isinstance(batch_results[0], list):
+            batch_results = [batch_results]
+            
+        results.extend(batch_results)
+    
+    return results
+
 def tag_entities_hf(text):
     """Tag entities using Hugging Face model."""
     entities = hf_ner(text)
@@ -57,10 +83,46 @@ def tag_entities_hf(text):
                     'label': custom_tag,
                     'start': start,
                     'end': end,
-                    'confidence': confidence
+                    'confidence': float(confidence)  # Convert to Python float for JSON serialization
                 })
     
     return tagged_text, results
+
+def tag_entities_batch(texts):
+    """Tag entities for multiple texts using batch processing."""
+    batch_entities = process_texts_batch(texts)
+    results = []
+    
+    for i, (text, entities) in enumerate(zip(texts, batch_entities)):
+        tagged_text = text
+        text_results = []
+        
+        # Sort entities by start position in reverse to avoid offset issues
+        entities = sorted(entities, key=lambda x: x['start'], reverse=True)
+        
+        for ent in entities:
+            start = ent['start']
+            end = ent['end']
+            label = ent['entity_group'] if 'entity_group' in ent else ent['entity']
+            entity_text = text[start:end]
+            confidence = ent.get('score', 1.0)
+            
+            # Only include high-confidence entities for ancient texts
+            if confidence > 0.7:
+                if label in HF_TO_CUSTOM:
+                    custom_tag = HF_TO_CUSTOM[label]
+                    tagged_text = tagged_text[:start] + f"<{custom_tag}>{entity_text}</{custom_tag}>" + tagged_text[end:]
+                    text_results.append({
+                        'text': entity_text,
+                        'label': custom_tag,
+                        'start': start,
+                        'end': end,
+                        'confidence': float(confidence)  # Convert to Python float for JSON serialization
+                    })
+        
+        results.append((tagged_text, text_results))
+    
+    return results
 
 def tag_entities(text):
     """Main entity tagging function."""
@@ -122,26 +184,38 @@ def process_xml_file(input_path, output_dir):
     tree = ET.parse(input_path)
     root = tree.getroot()
     
+    # Collect all texts for batch processing
+    stc_elements = []
+    texts = []
+    
+    for stc in root.findall(".//STC"):
+        if stc.text:
+            stc_elements.append(stc)
+            texts.append(stc.text)
+    
+    # Process all texts in batch for better GPU efficiency
+    if texts:
+        batch_results = tag_entities_batch(texts)
+    else:
+        batch_results = []
+    
     # Store results for JSON output
     file_results = {
         'filename': os.path.basename(input_path),
         'sentences': []
     }
     
-    for stc in root.findall(".//STC"):
-        if stc.text:
-            original_text = stc.text
-            tagged_text, entities = tag_entities(original_text)
-            
-            # Store for JSON
-            file_results['sentences'].append({
-                'original_text': original_text,
-                'tagged_text': tagged_text,
-                'entities': entities
-            })
-            
-            # Apply XML tagging
-            tag_entities_to_xml(stc, original_text)
+    # Apply results to XML elements and collect for JSON
+    for stc_elem, original_text, (tagged_text, entities) in zip(stc_elements, texts, batch_results):
+        # Store for JSON
+        file_results['sentences'].append({
+            'original_text': original_text,
+            'tagged_text': tagged_text,
+            'entities': entities
+        })
+        
+        # Apply XML tagging
+        tag_entities_to_xml(stc_elem, original_text)
     
     os.makedirs(output_dir, exist_ok=True)
     
