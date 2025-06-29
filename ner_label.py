@@ -85,7 +85,7 @@ def process_xml_file(input_path, output_dir):
     tree.write(output_path, encoding="utf-8", xml_declaration=True)
 
 # Hard-coded input files and output directory
-input_files = ["xml/phong_data.xml", "xml/hieu_data.xml"]  # Replace with actual second file if needed
+input_files = ["xml_data/phong_data.xml", "xml_data/hieu_data.xml"]  # Replace with actual second file if needed
 output_dir = "output_ner"
 
 def main():
