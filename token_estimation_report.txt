@@ -1,0 +1,40 @@
+
+====================================================================================================
+COMPREHENSIVE XML TOKEN ESTIMATION REPORT (Including NER Pipeline Overhead)
+====================================================================================================
+
+SUMMARY:
+  Total Files: 2
+  Total STC Elements: 120267
+  Total API Calls: 120267
+  System Prompt Tokens: 388 (per call)
+  Total Content Tokens: 3,439,222
+  Total Input Tokens: 58,044,247
+  Total Output Tokens: 6,202,462
+  TOTAL TOKENS: 64,246,709
+  Prompt Overhead: 94.07%
+  Average Total Tokens per STC: 534.2
+  Average Content Tokens per STC: 28.6
+
+COST ESTIMATION (GPT-4.1-nano):
+  WITHOUT PROMPT CACHING:
+    Input Cost: $6.3849
+    Output Cost: $2.7291
+    TOTAL: $9.1140
+  WITH SYSTEM PROMPT CACHING:
+    First Call System Prompt: $0.0000
+    Cached System Prompts: $1.3066
+    User Prompts: $1.2519
+    Output Cost: $2.7291
+    TOTAL WITH CACHING: $5.2876
+    SAVINGS FROM CACHING: $3.8264 (42.0%)
+
+PER-FILE BREAKDOWN:
+Filename                  STCs   Content  Input    Output   Total    Cost$  
+----------------------------------------------------------------------------------------------------
+hieu_data.xml             116292 3185054  55981592 5984427  61966019 5.0912 
+phong_data.xml            3975   254168   2062655  218035   2280690  0.1964 
+====================================================================================================
+NOTE: This includes system prompt (388 tokens) + user prompt template for each STC
+Output tokens are estimated based on typical NER responses (actual may vary)
+Costs calculated with system prompt caching enabled (cached after first API call)
