@@ -110,7 +110,7 @@ class ChineseNERPipeline:
                         {"role": "user", "content": user_prompt}
                     ],
                     temperature=0.1,
-                    max_tokens=1000
+                    max_tokens=4000
                 )
                 logger.info(f"OpenAI response: {response.choices[0].message.content}")
                 result_text = response.choices[0].message.content.strip()
@@ -196,6 +196,94 @@ class ChineseNERPipeline:
         try:
             # 🧼 Sanitize malformed tags like < TME> → <TME>
             annotated_text = re.sub(r'<\s+(/?\s*\w+)\s*>', r'<\1>', annotated_text)
+            
+            # 🔧 Fix unclosed tags by removing orphaned opening tags at the end
+            # Find all tags and their positions
+            tag_pattern = r'<(/?)(\w+)>'
+            tags = []
+            for match in re.finditer(tag_pattern, annotated_text):
+                is_closing = match.group(1) == '/'
+                tag_name = match.group(2)
+                tags.append({
+                    'name': tag_name,
+                    'is_closing': is_closing,
+                    'start': match.start(),
+                    'end': match.end(),
+                    'full_match': match.group(0)
+                })
+            
+            # Track open tags
+            open_tags = []
+            tags_to_remove = []
+            
+            for tag in tags:
+                if not tag['is_closing']:
+                    # Opening tag
+                    open_tags.append(tag)
+                else:
+                    # Closing tag - try to match with opening tag
+                    matched = False
+                    for i in range(len(open_tags) - 1, -1, -1):
+                        if open_tags[i]['name'] == tag['name']:
+                            open_tags.pop(i)
+                            matched = True
+                            break
+                    if not matched:
+                        # Closing tag without opening tag - mark for removal
+                        tags_to_remove.append(tag)
+            
+            # Any remaining open tags at the end should be removed
+            tags_to_remove.extend(open_tags)
+            
+            # Remove problematic tags (in reverse order to maintain positions)
+            for tag in sorted(tags_to_remove, key=lambda x: x['start'], reverse=True):
+                annotated_text = annotated_text[:tag['start']] + annotated_text[tag['end']:]
+                logger.warning(f"Removed malformed tag: {tag['full_match']}")
+            
+            # Alternative approach: Auto-close unclosed tags
+            # First, let's try to auto-close any remaining unclosed tags
+            tag_stack = []
+            result = []
+            i = 0
+            
+            while i < len(annotated_text):
+                if annotated_text[i] == '<':
+                    # Find the end of the tag
+                    tag_end = annotated_text.find('>', i)
+                    if tag_end != -1:
+                        tag = annotated_text[i:tag_end+1]
+                        tag_match = re.match(r'<(/?)(\w+)>', tag)
+                        if tag_match:
+                            is_closing = tag_match.group(1) == '/'
+                            tag_name = tag_match.group(2)
+                            
+                            if not is_closing:
+                                # Opening tag
+                                tag_stack.append(tag_name)
+                                result.append(tag)
+                            else:
+                                # Closing tag
+                                if tag_stack and tag_stack[-1] == tag_name:
+                                    tag_stack.pop()
+                                    result.append(tag)
+                                # else: skip mismatched closing tag
+                        else:
+                            result.append(tag)
+                        i = tag_end + 1
+                    else:
+                        result.append(annotated_text[i])
+                        i += 1
+                else:
+                    result.append(annotated_text[i])
+                    i += 1
+            
+            # Auto-close any remaining open tags
+            while tag_stack:
+                tag_name = tag_stack.pop()
+                result.append(f'</{tag_name}>')
+                logger.warning(f"Auto-closed unclosed tag: <{tag_name}>")
+            
+            annotated_text = ''.join(result)
 
             # Wrap in dummy root for XML parsing
             wrapped = f"<dummy>{annotated_text}</dummy>"
@@ -214,8 +302,9 @@ class ChineseNERPipeline:
         except Exception as e:
             logger.error(f"Error replacing STC content with annotated XML: {e}")
             logger.error(f"Annotated text was: {annotated_text}")
-            import traceback
-            logger.error(traceback.format_exc())
+            # Fallback: just set the text without tags
+            stc_element.text = re.sub(r'<[^>]+>', '', annotated_text)
+            logger.warning("Fallback: Set text without XML tags")
     
     def write_xml_with_ner_tags(self, tree: etree._ElementTree, output_path: Path) -> None:
         """
@@ -450,7 +539,7 @@ def main():
     """
     # Configure your Azure OpenAI credentials
     AZURE_ENDPOINT = "https://nvtph-mcf3aww2-eastus2.cognitiveservices.azure.com/"
-    API_KEY = "3CeSRZXX37FMawuv7XkxeKbYjex79xMj5IwMRgzXUxoEfmJSXt5pJQQJ99BFACHYHv6XJ3w3AAAAACOGLBRA"
+    API_KEY = "<API_KEY>"
     API_VERSION = "2025-01-01-preview"
     
     # You can also use environment variables
