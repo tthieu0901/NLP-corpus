@@ -110,7 +110,7 @@ def extract_pages_from_file(file_path: str) -> List[Dict]:
             # Save previous page if it exists
             if current_page_info and current_page_content:
                 content_text = '\n'.join(current_page_content).strip()
-                if len(content_text) > 1:  # Only save pages with substantial content
+                if len(content_text) > 50:  # Only save pages with substantial content
                     pages.append({
                         'page_num': current_page_info['page_num'],
                         'chapter_num': current_page_info['chapter_num'],
