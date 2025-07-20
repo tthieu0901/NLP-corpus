@@ -1,9 +1,10 @@
-# Ming History Crawler (明史爬虫)
+# Ming History NLP Corpus (明史语料库)
 
-A Python script to crawl chapters from the Ming History (明史) website at https://www.xuges.com/ls/mingshi/index.htm.
+A comprehensive toolkit for crawling Ming Dynasty historical texts and training Chinese Masked Language Models (MLM).
 
 ## Features
 
+### Data Crawling
 - ✅ **Chapter Type Detection**: Automatically detects chapter types (本纪, 列传, 志, 表, etc.)
 - ✅ **Volume Numbering**: Incremental volume numbering per chapter section
 - ✅ **Content Extraction**: Extracts true titles and full text content
@@ -15,12 +16,167 @@ A Python script to crawl chapters from the Ming History (明史) website at http
 - ✅ **Comprehensive Logging**: Detailed logs and error handling
 - ✅ **Progress Summary**: Generates summary report after completion
 
+### Masked Language Model Training
+- ✅ **BERT-based Architecture**: Uses bert-base-chinese as foundation
+- ✅ **Classical Chinese Text Processing**: Specialized for historical Chinese texts
+- ✅ **Automatic Data Loading**: Processes all Ming History text files
+- ✅ **MLM Training Pipeline**: Complete training with masking, tokenization, and evaluation
+- ✅ **Perplexity Evaluation**: Measures model performance
+- ✅ **Model Saving**: Saves trained model and tokenizer
+- ✅ **Inference Testing**: Provides fill-mask pipeline for testing
+
 ## Installation
+
+### For Conda Users (Recommended)
+
+1. Activate your conda environment:
+```bash
+conda activate data-formulator
+```
+
+2. Run the automated setup:
+```bash
+python setup_environment.py
+```
+
+Or manually install dependencies:
+```bash
+conda install pytorch numpy scikit-learn tqdm -y
+pip install transformers>=4.20.0 datasets>=2.0.0
+```
+
+### For Pip Users
 
 1. Install required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Usage
+
+### Quick Start (Windows with Conda)
+
+Run the automated batch script:
+```bash
+run_training.bat
+```
+
+This will:
+1. Activate the data-formulator environment
+2. Install dependencies
+3. Optionally inspect data
+4. Train the MLM model
+5. Test the trained model
+
+### Manual Step-by-Step Process
+
+#### 1. Data Inspection
+```bash
+python inspect_data.py
+```
+
+#### 2. Train the Masked Language Model
+```bash
+python build_predict_word_model.py
+```
+
+#### 3. Test the Trained Model
+```bash
+python test_model.py
+```
+
+### Data Crawling (Optional)
+
+If you need to crawl new data:
+
+#### Basic Usage (Test Mode)
+```bash
+python crawl_data.py
+```
+
+#### Full Crawl
+Modify `TEST_MODE = False` in `crawl_data.py`, then:
+```bash
+python crawl_data.py
+```
+
+## MLM Training Configuration
+
+The training script includes the following default parameters:
+
+- **Model**: bert-base-chinese
+- **Epochs**: 30
+- **Batch Size**: 32
+- **Learning Rate**: 5e-5
+- **Max Sequence Length**: 128
+- **Masking Probability**: 15%
+- **Optimizer**: AdamW with linear learning rate scheduler
+
+### Customizing Training
+
+Edit `build_predict_word_model.py` to modify:
+
+```python
+# Configuration
+EPOCHS = 30              # Number of training epochs
+BATCH_SIZE = 32          # Training batch size
+LEARNING_RATE = 5e-5     # Learning rate
+MAX_LENGTH = 128         # Maximum sequence length
+```
+
+## Model Output
+
+The trained model will be saved to `chinese_ming_history_mlm/` directory containing:
+
+- `config.json`: Model configuration
+- `pytorch_model.bin`: Trained model weights
+- `tokenizer_config.json`: Tokenizer configuration
+- `vocab.txt`: Vocabulary file
+
+## Testing the Model
+
+The test script provides two modes:
+
+### 1. Automatic Testing
+```bash
+python test_model.py
+```
+
+Tests predefined classical Chinese sentences with masked tokens.
+
+### 2. Interactive Testing
+```bash
+python test_model.py
+# Choose option 2 for interactive mode
+```
+
+Enter your own sentences with `[MASK]` tokens for testing.
+
+### Example Test Cases
+
+```text
+Input: 太祖起[MASK]州，所至必克。
+Expected: 濠 (Hao prefecture)
+
+Input: 明代[MASK]宦之祸酷矣。
+Expected: 阉 (eunuch)
+
+Input: 从太祖渡[MASK]，积功由百夫长授元帅。
+Expected: 江 (river)
+```
+
+## Performance Metrics
+
+The model is evaluated using:
+
+- **Perplexity**: Lower values indicate better language modeling performance
+- **Fill-mask Accuracy**: How well the model predicts masked tokens
+- **Training Loss**: Convergence during training
+
+Typical results:
+- Training Perplexity: ~15-25 (depending on data size and epochs)
+- GPU Training Time: ~2-4 hours for 30 epochs
+- CPU Training Time: ~8-12 hours for 30 epochs
 
 ## Usage
 
