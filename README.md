@@ -16,6 +16,21 @@ A comprehensive toolkit for crawling Ming Dynasty historical texts and training 
 - ✅ **Comprehensive Logging**: Detailed logs and error handling
 - ✅ **Progress Summary**: Generates summary report after completion
 
+### Named Entity Recognition (NER)
+- ✅ **Hugging Face NER**: Uses `ckiplab/bert-base-chinese-ner` for entity recognition
+- ✅ **Azure OpenAI NER**: GPT-4 powered NER for historical Chinese texts
+- ✅ **Entity Types**: PER (Person), LOC (Location), ORG (Organization), MSC (Miscellaneous), TME (Time)
+- ✅ **Batch Processing**: Efficient batch processing for large datasets
+- ✅ **XML Integration**: Direct integration with XML data format
+- ✅ **Chinese Text Preprocessing**: Handles classical Chinese text formatting
+
+### Web Application
+- ✅ **Streamlit Interface**: Interactive web demo for model testing
+- ✅ **Real-time Prediction**: Instant masked word prediction
+- ✅ **Example Sentences**: Pre-loaded historical Chinese examples
+- ✅ **Confidence Scores**: Displays prediction confidence rankings
+- ✅ **User-friendly UI**: Clean, intuitive interface for model interaction
+
 ### Masked Language Model Training
 - ✅ **BERT-based Architecture**: Uses bert-base-chinese as foundation
 - ✅ **Classical Chinese Text Processing**: Specialized for historical Chinese texts
@@ -100,6 +115,27 @@ Modify `TEST_MODE = False` in `crawl_data.py`, then:
 python crawl_data.py
 ```
 
+### Named Entity Recognition (NER)
+
+#### Using Hugging Face NER Model
+```bash
+python ner_label.py
+```
+This script processes XML files in the `xml/` directory and outputs NER-tagged files to `output_ner/`.
+
+#### Using Azure OpenAI GPT-4 NER
+```bash
+python ner_label_gpt.py
+```
+**Prerequisites:**
+- Azure OpenAI API credentials
+- Set environment variables: `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY`
+
+**Features:**
+- Advanced NER for historical Chinese texts
+- Better understanding of classical Chinese context
+- Higher accuracy for ancient names and places
+
 ## MLM Training Configuration
 
 The training script includes the following default parameters:
@@ -165,6 +201,30 @@ Input: 从太祖渡[MASK]，积功由百夫长授元帅。
 Expected: 江 (river)
 ```
 
+### Web Application Demo
+
+After training and testing your model, you can launch an interactive web interface:
+
+#### Launch the Streamlit App
+```bash
+streamlit run app.py
+```
+
+**Features:**
+- Interactive web interface for model testing
+- Pre-loaded example sentences from Ming History
+- Real-time prediction with confidence scores
+- User-friendly interface for non-technical users
+
+**Access:**
+- Open browser to `http://localhost:8501`
+- Enter sentences with `[MASK]` tokens
+- View top 5 predictions with confidence scores
+
+**Prerequisites:**
+- Must have a trained model in `chinese_ming_history_mlm/` directory
+- Install Streamlit: `pip install streamlit`
+
 ## Performance Metrics
 
 The model is evaluated using:
@@ -220,6 +280,7 @@ In `crawl_data.py`, you can modify:
 
 ## Output Structure
 
+### Crawling Output
 The script creates the following files:
 
 ```
@@ -230,6 +291,29 @@ ming_history_chapters/
 ├── 列传_1_徐达列传.txt
 └── ...
 ```
+
+### NER Output
+NER processing creates tagged XML files:
+
+```
+output_ner/
+├── hieu_data.xml                       # NER-tagged data
+├── phong_data.xml                      # NER-tagged data
+└── ...
+```
+
+**Entity Tags:**
+- `<PER>...</PER>` - Person names (historical figures, officials)
+- `<LOC>...</LOC>` - Location names (cities, regions, countries)
+- `<ORG>...</ORG>` - Organization names (government offices, schools)
+- `<MSC>...</MSC>` - Miscellaneous entities (objects, books, etc.)
+- `<TME>...</TME>` - Time expressions (dates, periods)
+
+### Web Application Features
+- **Interactive Interface**: User-friendly web interface
+- **Example Sentences**: Pre-loaded historical Chinese examples
+- **Real-time Results**: Instant prediction with confidence scores
+- **Responsive Design**: Works on desktop and mobile devices
 
 Each chapter file contains:
 - 标题 (Title)
@@ -318,10 +402,24 @@ The script creates detailed logs in `ming_history_crawl.log` including:
 
 ## Requirements
 
+### Core Requirements
 - Python 3.7+
 - requests>=2.28.0
 - beautifulsoup4>=4.11.0
 - lxml>=4.9.0
+
+### Additional Requirements for NER and Web App
+- streamlit>=1.47.0 (for web application)
+- openai>=1.97.1 (for Azure OpenAI NER)
+- transformers>=4.20.0 (for Hugging Face NER)
+- torch>=1.12.0 (for model inference)
+- pandas>=1.4.0 (for data display)
+
+### Installation
+```bash
+pip install -r requirements.txt
+pip install streamlit openai
+```
 
 ## Notes
 
