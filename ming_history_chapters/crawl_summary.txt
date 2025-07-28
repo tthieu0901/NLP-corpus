@@ -1,7 +1,7 @@
 明史爬取总结
 ==================================================
 
-爬取时间: 2025-06-11 19:00:20
+爬取时间: 2025-06-20 20:21:18
 总章节数: 1635
 成功下载: 1635
 失败数量: 0
@@ -13,4 +13,4 @@
   志: 1490 章
   列传: 3 章
 
-输出目录: c:\Users\nguyenphong\Downloads\study master\NLP\06.Minh Sử_MinhNguyen\06.Minh Sử\ming_history_chapters
+输出目录: F:\thacsi\NN\abc\NLP-corpus-Chinese\ming_history_chapters_new
