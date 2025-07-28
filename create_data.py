@@ -199,7 +199,7 @@ def create_data_phong(folder_path, output_path):
 
 # Main
 if __name__ == "__main__":
-    # folder_path_hieu = "ming_history_chapters_new"
+    # folder_path_hieu = "ming_history_chapters"
     # output_file_hieu = "xml_data/hieu_data.xml"
     # create_data_hieu(folder_path_hieu, output_file_hieu)
 

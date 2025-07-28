@@ -300,7 +300,7 @@ def main():
     """Main training pipeline"""
     
     # Configuration
-    DATA_FOLDER = "ming_history_chapters_new"
+    DATA_FOLDER = "ming_history_chapters"
     MODEL_NAME = "bert-base-chinese"
     OUTPUT_DIR = "chinese_ming_history_mlm"
     EPOCHS = 30

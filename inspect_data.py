@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 from collections import Counter
 
-def analyze_data_folder(folder_path="ming_history_chapters_new"):
+def analyze_data_folder(folder_path="ming_history_chapters"):
     """Analyze the structure and content of the data folder"""
     
     folder = Path(folder_path)
@@ -127,7 +127,7 @@ def main():
     analyze_data_folder()
     
     # Inspect a few specific files
-    folder = Path("ming_history_chapters_new")
+    folder = Path("ming_history_chapters")
     if folder.exists():
         txt_files = [f for f in folder.glob("*.txt") if f.name != "crawl_summary.txt"]
         
