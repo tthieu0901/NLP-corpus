@@ -1,3 +1,28 @@
-results.zip
-chinese_ming_history_mlm
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Logs
 *.log
+mlm_training.log
+ming_history_crawl.log
+text_processing.log
+preliminary_extraction.log
+
+# Data and results
+*.zip
+results/
+output_ner/
+
+# Model output (keep if you want to share the model, otherwise ignore)
+chinese_ming_history_mlm/
+
+# Reports and docs
+*.docx
+token_estimation_report.txt
+
+# Hugging Face repo tracking
+__huggingface_repos__.json
+
+# Misc
+*.tmp

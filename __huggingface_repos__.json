@@ -1,1 +1,0 @@
-{"repos": [{"repoId": "bert-base-chinese", "repoType": "model", "commitHash": "8f23c25b06e129b6c986331a13d8d025a92cf0ea", "filePaths": ["model.safetensors", "tokenizer_config.json", "config.json", "tokenizer.json", "vocab.txt"]}]}
